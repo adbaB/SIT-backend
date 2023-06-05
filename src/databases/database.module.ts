@@ -9,19 +9,20 @@ import config from 'src/config/configDatabase';
     TypeOrmModule.forRootAsync({
       inject: [config.KEY],
       useFactory: (configService: ConfigType<typeof config>) => {
-        const { host, databaseName, username, password, port, schema } =
+        const { host, databaseName, username, password, port } =
           configService.database;
-
+        console.log(host, databaseName, username, password, port);
         return {
-          type: 'postgres',
+          type: 'mariadb',
           host,
           port,
-          schema,
           username,
           password,
           database: databaseName,
-          entities: [],
-          synchronize: true,
+          entities: [__dirname + '/../**/**/*.entity{.ts,.js}'],
+          migrations: [__dirname + '/../**/**/*.migration{.ts,.js}'],
+          synchronize: false,
+          migrationsRun: true,
           logging: true,
         };
       },
