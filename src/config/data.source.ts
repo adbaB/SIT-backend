@@ -8,7 +8,7 @@ export const DataSourceConfig: DataSourceOptions = {
   password: '',
   database: 'SATRICA',
   entities: [__dirname + '/../**/**/*.entity{.ts,.js}'],
-  migrations: [__dirname + '/../migrations/*{.ts,.js}'],
+  migrations: [__dirname + '/../databases/migrations/*{.ts,.js}'],
   synchronize: false,
   migrationsRun: true,
   logging: false,
