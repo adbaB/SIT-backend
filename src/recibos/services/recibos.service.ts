@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { formatResponse } from 'src/common/formatResponse';
-import { getSkip } from 'src/common/getSkip';
+import { formatResponse, getSkip } from 'src/common/functions/';
 import { Repository, Not, IsNull, Between, MoreThan, LessThan } from 'typeorm';
 import { CreateReciboDto } from '../dto/create-recibo.dto';
 import { FindReciboDto } from '../dto/find-recibo-query.dto';

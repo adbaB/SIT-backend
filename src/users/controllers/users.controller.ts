@@ -7,11 +7,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import LogResponse from 'src/common/decorators/log-response.decorator';
-import ErrorHandler from 'src/common/decorators/error-handler.decorator';
+import { UsersService } from '../services/users.service';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { ErrorHandler, LogResponse } from '../../common/decorators';
 import { NotFoundException } from '@nestjs/common/exceptions';
 
 @Controller('users')
