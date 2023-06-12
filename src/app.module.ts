@@ -6,6 +6,7 @@ import { configModule } from './config/config.module';
 import { DatabaseModule } from './databases/database.module';
 import { RecibosModule } from './recibos/recibos.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { UsersModule } from './users/users.module';
     RecibosModule,
     UsersModule,
     CommonModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
