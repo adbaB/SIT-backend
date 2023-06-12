@@ -13,7 +13,6 @@ import { CreateReciboDto } from '../dto/create-recibo.dto';
 import { UpdateReciboDto } from '../dto/update-recibo.dto';
 import { FindReciboDto } from '../dto/find-recibo-query.dto';
 import { PaginationQueryDto } from '../dto/paginatio-query.dto';
-import { query } from 'express';
 
 @Controller('recibos')
 export class RecibosController {
