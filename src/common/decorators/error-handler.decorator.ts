@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { ErrorHandlerService } from '../services/handlerError.service';
-export default function ErrorHandler() {
+export function ErrorHandler() {
   const injectErrorHandlerService = Inject(ErrorHandlerService);
   return (
     target: any,

@@ -1,5 +1,5 @@
 import { Logger, Inject } from '@nestjs/common';
-export default function LogResponse() {
+export function LogResponse() {
   const injectLogger = Inject(Logger);
   return (
     target: any,
