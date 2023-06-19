@@ -27,6 +27,10 @@ export class UsersService {
     return this.userRepo.findOne({ where: { id } });
   }
 
+  findBy({ key, value }: { key: keyof User; value: any }) {
+    return this.userRepo.findOneBy({ [key]: value });
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto) {
     if (updateUserDto.contrasena) {
       updateUserDto.contrasena = await bcrypt.hash(
