@@ -27,7 +27,9 @@ export class User {
   @Column({ type: 'boolean', default: true })
   estado: boolean;
   @CreateDateColumn({ name: 'create_at' })
+  @Exclude()
   createAt: Date;
   @UpdateDateColumn({ name: 'update_at' })
+  @Exclude()
   updateAt: Date;
 }
