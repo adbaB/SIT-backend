@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
+
   @Post('login')
   async login(@Body() userData: loginDto) {
     const userValidate = await this.authService.validateUser(
