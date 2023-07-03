@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'src/config/configDatabase';
+import { ContribuyenteSubscriber } from 'src/contribuyente/entities/subscribers/contribuyente.subcriber';
 
 @Global()
 @Module({
@@ -11,7 +12,6 @@ import config from 'src/config/configDatabase';
       useFactory: (configService: ConfigType<typeof config>) => {
         const { host, databaseName, username, password, port } =
           configService.database;
-        console.log(host, databaseName, username, password, port);
         return {
           type: 'mariadb',
           host,
@@ -21,6 +21,7 @@ import config from 'src/config/configDatabase';
           database: databaseName,
           entities: [__dirname + '/../**/**/*.entity{.ts,.js}'],
           migrations: [__dirname + '/../**/**/*.migration{.ts,.js}'],
+          subscribers: [__dirname + '/../**/**/*.subcriber{.ts,.js}'],
           synchronize: false,
           migrationsRun: true,
           logging: true,

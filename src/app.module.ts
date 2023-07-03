@@ -7,6 +7,7 @@ import { DatabaseModule } from './databases/database.module';
 import { RecibosModule } from './recibos/recibos.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { ContribuyenteModule } from './contribuyente/contribuyente.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     CommonModule,
     AuthModule,
+    ContribuyenteModule,
   ],
   controllers: [AppController],
   providers: [AppService],
