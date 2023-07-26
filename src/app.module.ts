@@ -8,7 +8,7 @@ import { RecibosModule } from './recibos/recibos.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ContribuyenteModule } from './contribuyente/contribuyente.module';
-
+import { ReportsModule } from './report/reports.module';
 @Module({
   imports: [
     configModule,
@@ -18,6 +18,7 @@ import { ContribuyenteModule } from './contribuyente/contribuyente.module';
     CommonModule,
     AuthModule,
     ContribuyenteModule,
+    ReportsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
