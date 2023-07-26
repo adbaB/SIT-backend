@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Contribuyente } from 'src/contribuyente/entities/contribuyente.entity';
 import {
   Column,
@@ -18,6 +19,7 @@ export class Sector {
   @Column({ type: 'int', name: 'zona_catastral' })
   zonaCatastral: number;
   @CreateDateColumn({ name: 'create_at' })
+  @Exclude()
   createAt: Date;
   @Column({ type: 'boolean', default: true })
   estado: boolean;

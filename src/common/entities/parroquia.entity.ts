@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Contribuyente } from 'src/contribuyente/entities/contribuyente.entity';
 import {
   Column,
@@ -14,6 +15,7 @@ export class Parroquia {
   @Column({ type: 'varchar', length: 250, unique: true })
   descripcion: string;
   @CreateDateColumn({ name: 'create_at' })
+  @Exclude()
   createAt: Date;
   @Column({ type: 'boolean', default: true })
   estado: boolean;
