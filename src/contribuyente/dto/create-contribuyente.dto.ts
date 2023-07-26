@@ -15,7 +15,7 @@ import { Estado, TypeContribuyente } from '../entities/contribuyente.entity';
 
 export class CreateContribuyenteDto {
   @IsNotEmpty()
-  @IsAlphanumeric()
+  @IsString()
   numeroIdentificacion: string;
   @IsNotEmpty()
   @IsString()
@@ -40,5 +40,5 @@ export class CreateContribuyenteDto {
   correo: string;
   @IsOptional()
   @IsEnum(Estado)
-  estado: Estado;
+  estado?: Estado;
 }

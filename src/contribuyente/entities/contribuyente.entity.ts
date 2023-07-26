@@ -10,16 +10,17 @@ import {
 
 import { Parroquia } from 'src/common/entities/parroquia.entity';
 import { Sector } from 'src/common/entities/sector.entity';
+import { Exclude } from 'class-transformer';
 
 export enum Estado {
-  Activo = 'Activo',
-  Inanctivo = 'Inactivo',
-  Suspendido = 'Suspendido',
+  Activo = 'activo',
+  Inanctivo = 'inactivo',
+  Suspendido = 'suspendido',
 }
 export enum TypeContribuyente {
-  PN = 'Persona Natural',
-  PNC = 'Persona Natural Comercial',
-  PJ = 'Persona Juridica',
+  PN = 'persona natural',
+  PNC = 'persona natural comercial',
+  PJ = 'persona juridica',
 }
 @Entity('contribuyente')
 export class Contribuyente {
@@ -56,8 +57,10 @@ export class Contribuyente {
   @Column({ type: 'varchar', length: 150 })
   correo: string;
   @CreateDateColumn({ name: 'create_at' })
+  @Exclude()
   createAt: Date;
   @UpdateDateColumn({ name: 'update_at' })
+  @Exclude()
   updateAt: Date;
   @Column({
     type: 'enum',
@@ -67,3 +70,4 @@ export class Contribuyente {
   })
   estado: Estado;
 }
+ 

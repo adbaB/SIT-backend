@@ -1,11 +1,17 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import * as moment from 'moment';
 
 import { CreateContribuyenteDto } from '../dto/create-contribuyente.dto';
 import { UpdateContribuyenteDto } from '../dto/update-contribuyente.dto';
-import { Contribuyente } from '../entities/contribuyente.entity';
+import { Contribuyente, Estado } from '../entities/contribuyente.entity';
+import { formatResponse, getSkip } from 'src/common/functions';
+import { FindEstado } from '../enum/findEstado';
 
 @Injectable()
 export class ContribuyenteService {
@@ -32,17 +38,36 @@ export class ContribuyenteService {
     await this.setCurrentRUC();
     return response;
   }
+  async findAll(estado: FindEstado, page: number, limit: number) {
+    const data: FindManyOptions<Contribuyente> = {};
 
-  findAll() {
-    return `This action returns all contribuyente`;
+    data.relations = { parroquia: true, sector: true };
+    data.skip = getSkip(limit, page);
+    data.take = limit;
+    data.where = estado === FindEstado.All ? {} : { estado };
+    const [contribuyentes, count] = await this.contribuyenteRepo.findAndCount(
+      data,
+    );
+    const response = formatResponse(contribuyentes, page, limit, count);
+    return response;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} contribuyente`;
+  async findOne(id: number) {
+    const contribuyente = await this.contribuyenteRepo.findOne({
+      where: { id },
+      relations: {
+        parroquia: true,
+        sector: true,
+      },
+    });
+    if (!contribuyente) {
+      throw new NotFoundException('Contribuyente no encontrado');
+    }
+    return contribuyente;
   }
 
   update(id: number, updateContribuyenteDto: UpdateContribuyenteDto) {
-    return `This action updates a #${id} contribuyente`;
+    return this.contribuyenteRepo.update(id, updateContribuyenteDto);
   }
 
   remove(id: number) {
