@@ -10,6 +10,7 @@ import { SectorController } from './controllers/sector.controller';
 import { SectorService } from './services/sector.service';
 import { IsParroquiaIdValidConstraint } from 'src/common/validations/is-parroquia-id-valid.constraint';
 import { IsSectorIdValidConstraint } from './validations/is-sector-id-valid.constraint';
+import { PublicImageController } from './controllers/public-image.controller';
 
 @Global()
 @Module({
@@ -22,7 +23,7 @@ import { IsSectorIdValidConstraint } from './validations/is-sector-id-valid.cons
     IsParroquiaIdValidConstraint,
     IsSectorIdValidConstraint,
   ],
-  controllers: [ParroquiaController, SectorController],
+  controllers: [ParroquiaController, SectorController, PublicImageController],
   exports: [
     ErrorHandlerService,
     IsParroquiaIdValidConstraint,

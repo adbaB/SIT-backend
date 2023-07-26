@@ -1,0 +1,193 @@
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+     <style>
+        *{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  font-family: sans-serif;
+}
+.header{
+  margin-top: 30px;
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
+.header img {
+  height: 70px;
+  aspect-ratio: auto;
+}
+.header .logo {
+  height: 120px; 
+  aspect-ratio: auto;
+
+}
+.degradado { 
+ 
+  width: 95%;
+  height: 10px;
+  margin:auto;
+  border-radius: 10px;
+  background: rgb(255,192,0);
+background: linear-gradient(90deg, rgba(255,192,0,1) 9%, rgba(2,137,0,1) 29%, rgba(3,146,221,1) 63%);
+}
+
+
+.titulo{
+  text-align: center;
+  font-weight:400 ;
+  font-size: 24px;
+  font-family: sans-serif;
+  display: block;
+}
+.titulo p {
+text-align: center;
+width: 450px;
+margin:auto;
+margin-top: 30px;
+line-height: 1.5;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+.titulo p span {
+  font-weight: 600;
+}
+.container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font: 18px;
+  padding-right: 100px;
+  padding-left: 100px ;
+  width: 100%;
+}
+.subContainer{
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+  width: 100%;
+}
+.cedula{
+  width: 250px;
+}
+.titulo_principal{
+  font-size: 22px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  background: #D2D5D8;
+  padding: 5px 50px;
+  width: 100%;
+  text-align: center;
+}
+.direccion{
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+.red{
+  border: 1px solid red;
+}
+.w100{
+  width: 100%;
+}
+.titulo_direccion{
+  width: 100%;
+  text-align: center;
+}
+.data {
+  font-size: 20px;
+}
+
+.fecha{
+  width: 600px;
+
+}
+.fecha_titulo {
+text-align: center;
+}
+.tipo_contribuyente{
+  width: 100%;
+}
+.footer{
+  display:  flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  font-weight: 600;
+  
+}
+.borde{
+  width: 500px;
+  height: 1px;
+  margin-bottom: 10px;
+  border: solid black 1px;
+
+}
+    </style> 
+</head>
+
+<body>
+     <div class="body">
+        <div class="header">
+            <img src="{{ logo }}" />
+            <img class="logo" src="{{logo-alcaldia}}" />
+        </div>
+
+        <div class="degradado"></div>
+        <div class="titulo">
+            <p>Certificado de Inscripción en el registro único de contribuyentes
+                  N° <span> {{ruc}} </span>
+            </p>
+
+        </div>
+        <div>
+            <div class="container">
+                <div class="subContainer cedula ">
+                    <p class="titulo_principal">RIF/Cedula</p>
+                    <p class="data">{{cedula}}</p>
+                </div>
+                <div class="subContainer  ">
+                    <p class="titulo_principal">Nombre o Razón Social</p>
+                    <p class="data">{{nombre}}</p>
+                </div>
+            </div>
+            <div class="container direccion">
+                <div class="subContainer ">
+                    <p class="titulo_principal titulo_direccion">Dirección</p>
+                    <p class="data">{{direccion}}</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="subContainer fecha">
+                    <p class="titulo_principal fecha_titulo">Fecha de Inscripción</p>
+                    <p class="data">{{fecha}}</p>
+                </div>
+                <div class="subContainer tipo_contribuyente">
+                    <p class="titulo_principal">Tipo de contribuyente</p>
+                    <p class="data">{{typeContribuyente}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="borde"></div>
+            <p >ING. CARLOS A MILENO D.</p>
+            <p>SUPERINTENDENTE</p>
+            <p>SEGÚN RESOLUCIÓN N° 00020-2023 FECHA 27/03/2023</p>
+            <p>PUBLICADA EN GACETA MUNICIPAL N°1 EXTRAORDINARIA N°14 DE FECHA 28/03/2023</p>
+        </div>
+    </div> 
+
+</body>
+
+</html>
